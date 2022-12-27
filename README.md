@@ -1,0 +1,2 @@
+# DesperateStruggleWithCustomPolicies
+Azure AD B2Cのカスタムポリシーとの死闘
