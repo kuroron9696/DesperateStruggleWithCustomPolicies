@@ -1,0 +1,307 @@
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0"
+  TenantId="yourtenant.onmicrosoft.com" PolicyId="B2C_1A_PhoneLocalization"
+  PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_PhoneLocalization">
+  <BasePolicy>
+    <TenantId>yourtenant.onmicrosoft.com</TenantId>
+    <PolicyId>B2C_1A_PhoneBase</PolicyId>
+  </BasePolicy>
+  <BuildingBlocks>
+    <ContentDefinitions>
+      <!-- This content definition is to render an error page that displays unhandled errors. -->
+      <ContentDefinition Id="api.error">
+        <LoadUri>~/tenant/templates/AzureBlue/exception.cshtml</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.1</DataUri>
+        <Metadata>
+          <Item Key="DisplayName">Error page</Item>
+        </Metadata>
+      </ContentDefinition>
+      <ContentDefinition Id="phoneInput">
+        <LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.1</DataUri>
+        <Metadata>
+          <Item Key="DisplayName">Enter phone number to continue</Item>
+        </Metadata>
+        <LocalizedResourcesReferences MergeBehavior="Prepend">
+          <LocalizedResourcesReference Language="ja" LocalizedResourcesReferenceId="phoneInput.ja" />
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="phoneInput.en" />
+        </LocalizedResourcesReferences>
+      </ContentDefinition>
+      <ContentDefinition Id="newPhoneNumber">
+        <LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.1</DataUri>
+        <Metadata>
+          <Item Key="DisplayName">Verify new phone number</Item>
+        </Metadata>
+        <LocalizedResourcesReferences MergeBehavior="Prepend">
+          <LocalizedResourcesReference Language="ja"
+            LocalizedResourcesReferenceId="newPhoneNumber.ja" />
+          <LocalizedResourcesReference Language="en"
+            LocalizedResourcesReferenceId="newPhoneNumber.en" />
+        </LocalizedResourcesReferences>
+      </ContentDefinition>
+      <ContentDefinition Id="phoneSignIn">
+        <LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.1</DataUri>
+        <Metadata>
+          <Item Key="DisplayName">Verify phone to sign in</Item>
+        </Metadata>
+        <LocalizedResourcesReferences MergeBehavior="Prepend">
+          <LocalizedResourcesReference Language="ja" LocalizedResourcesReferenceId="phoneSignIn.ja" />
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="phoneSignIn.en" />
+        </LocalizedResourcesReferences>
+      </ContentDefinition>
+      <ContentDefinition Id="phoneSignUp">
+        <LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.1</DataUri>
+        <Metadata>
+          <Item Key="DisplayName">Verify phone to sign up</Item>
+        </Metadata>
+        <LocalizedResourcesReferences MergeBehavior="Prepend">
+          <LocalizedResourcesReference Language="ja" LocalizedResourcesReferenceId="phoneSignUp.ja" />
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="phoneSignUp.en" />
+        </LocalizedResourcesReferences>
+      </ContentDefinition>
+      <ContentDefinition Id="changePhoneNumberVerifyEmailAddress">
+        <LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.1</DataUri>
+        <Metadata>
+          <Item Key="DisplayName">Verify email address</Item>
+        </Metadata>
+        <LocalizedResourcesReferences MergeBehavior="Prepend">
+          <LocalizedResourcesReference Language="en"
+            LocalizedResourcesReferenceId="changePhoneNumberVerifyEmailAddress.en" />
+        </LocalizedResourcesReferences>
+      </ContentDefinition>
+      <ContentDefinition Id="phoneSignUpCollectEmailAddress">
+        <LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.1</DataUri>
+        <Metadata>
+          <Item Key="DisplayName">Collect email address during phone sign up</Item>
+        </Metadata>
+        <LocalizedResourcesReferences MergeBehavior="Prepend">
+          <LocalizedResourcesReference Language="en"
+            LocalizedResourcesReferenceId="phoneSignUpCollectEmailAddress.en" />
+        </LocalizedResourcesReferences>
+      </ContentDefinition>
+      <ContentDefinition Id="emailSignIn">
+        <LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.1</DataUri>
+        <Metadata>
+          <Item Key="DisplayName">Use email to sign in</Item>
+        </Metadata>
+      </ContentDefinition>
+      <ContentDefinition Id="emailSignUp">
+        <LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.1</DataUri>
+        <Metadata>
+          <Item Key="DisplayName">Verify email to sign up</Item>
+        </Metadata>
+        <LocalizedResourcesReferences MergeBehavior="Prepend">
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="emailSignUp.en" />
+        </LocalizedResourcesReferences>
+      </ContentDefinition>
+      <ContentDefinition Id="emailDiscovery">
+        <LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.1</DataUri>
+        <Metadata>
+          <Item Key="DisplayName">Verify email address</Item>
+        </Metadata>
+      </ContentDefinition>
+      <ContentDefinition Id="signuporsignin-phone">
+        <LoadUri>~/tenant/templates/AzureBlue/unified.cshtml</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.1</DataUri>
+        <Metadata>
+          <Item Key="DisplayName">Signin and Signup using phone</Item>
+          <Item Key="setting.bottomUnderFormClaimsProviderSelections">ChangePhoneNumber</Item>
+        </Metadata>
+        <LocalizedResourcesReferences MergeBehavior="Prepend">
+          <LocalizedResourcesReference Language="ja"
+            LocalizedResourcesReferenceId="signuporsignin-phone.ja" />
+          <LocalizedResourcesReference Language="en"
+            LocalizedResourcesReferenceId="signuporsignin-phone.en" />
+        </LocalizedResourcesReferences>
+      </ContentDefinition>
+      <ContentDefinition Id="signuporsignin-phone-email">
+        <LoadUri>~/tenant/templates/AzureBlue/unified.cshtml</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.1</DataUri>
+        <Metadata>
+          <Item Key="DisplayName">Signin and Signup using phone or email</Item>
+          <Item Key="setting.bottomUnderFormClaimsProviderSelections">ChangePhoneNumber</Item>
+        </Metadata>
+        <LocalizedResourcesReferences MergeBehavior="Prepend">
+          <LocalizedResourcesReference Language="en"
+            LocalizedResourcesReferenceId="signuporsignin-phone-email.en" />
+        </LocalizedResourcesReferences>
+      </ContentDefinition>
+      <ContentDefinition Id="resetemailpassword">
+        <LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.1</DataUri>
+        <Metadata>
+          <Item Key="DisplayName">Change password for email account</Item>
+        </Metadata>
+      </ContentDefinition>
+      <ContentDefinition Id="profileUpdate">
+        <LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.1</DataUri>
+        <Metadata>
+          <Item Key="DisplayName">Update profile</Item>
+        </Metadata>
+      </ContentDefinition>
+    </ContentDefinitions>
+
+    <Localization Enabled="true">
+      <SupportedLanguages DefaultLanguage="ja" MergeBehavior="Append">
+        <SupportedLanguage>ja</SupportedLanguage>
+        <SupportedLanguage>en</SupportedLanguage>
+      </SupportedLanguages>
+      <LocalizedResources Id="signuporsignin-phone.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Sign in with your
+            existing account</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="button_signin">Continue</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="signuporsignin-phone-email.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Sign in with your
+            existing account</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="button_signin">Continue</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="emailSignUp.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="UxElement" StringId="button_continue">Create</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="phoneSignIn.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="UxElement" StringId="initial_intro">Please verify your
+            country code and phone number</LocalizedString>
+          <!-- The following elements will display a message and two links at the bottom of the
+          signin page. 
+          For policies that you intend to show to users in the United
+          States, we suggest displaying the following text. Replace the content of the
+          disclaimer_link_X_url elements with links to your organization's privacy statement and
+          terms and conditions. 
+          Remove any of these lines if you do not wish to display
+          them.  -->
+          <LocalizedString ElementType="UxElement" StringId="disclaimer_msg_intro">By providing your
+            phone number, you consent to receiving a one-time passcode sent by text message to help
+            you sign into {insert your application name}. Standard messsage and data rates may
+            apply.</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_text">Privacy
+            Statement</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_url">https://jwt.ms</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="disclaimer_link_2_text">Terms and
+            Conditions</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="disclaimer_link_2_url">https://jwt.ms</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="phoneSignUp.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="UxElement" StringId="initial_intro">Please verify your
+            country code and phone number</LocalizedString>
+          <!-- The following elements will display a message and two links at the bottom of the
+          signup page. 
+          For policies that you intend to show to users in the United
+          States, we suggest displaying the following text. Replace the content of the
+          disclaimer_link_X_url elements with links to your organization's privacy statement and
+          terms and conditions. 
+          Remove any of these lines if you do not wish to display
+          them.  -->
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl"
+            StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving
+            a one-time passcode sent by text message to help you sign into {insert your application
+            name}. Standard messsage and data rates may apply.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl"
+            StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl"
+            StringId="disclaimer_link_1_url">https://jwt.ms</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl"
+            StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl"
+            StringId="disclaimer_link_2_url">https://jwt.ms</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="phoneInput.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="UxElement" StringId="initial_intro">Please enter your old
+            country code and phone number</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="nationalNumber" StringId="DisplayName">Old
+            phone number</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="newPhoneNumber.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="nationalNumber" StringId="DisplayName">New
+            phone number</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="changePhoneNumberVerifyEmailAddress.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="UxElement" StringId="button_continue">Continue</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_intro_msg">We need to verify the
+            email address you used to sign up with</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="phoneSignUpCollectEmailAddress.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="UxElement" StringId="button_continue">Create</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_intro_msg">Add a recovery email now
+            so you can recover your account if your phone number changes. Note that this email
+            address is for recovery purposes and not for signing in.</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+
+      <!--
+        ここから日本語
+        いらないやつは消している
+      -->
+      <LocalizedResources Id="signuporsignin-phone.ja">
+        <LocalizedStrings>
+          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">自分の既存のアカウントでサインイン</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="button_signin">サインイン</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="phoneSignIn.ja">
+        <LocalizedStrings>
+          <LocalizedString ElementType="UxElement" StringId="initial_intro">国コードと電話番号を入力してください</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="phoneSignUp.ja">
+        <LocalizedStrings>
+          <LocalizedString ElementType="UxElement" StringId="initial_intro">国コードと電話番号を入力してください</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="phoneInput.ja">
+        <LocalizedStrings>
+          <LocalizedString ElementType="UxElement" StringId="initial_intro">国コードと以前の電話番号を入力してください</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="nationalNumber" StringId="DisplayName">
+            以前の電話番号</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="newPhoneNumber.ja">
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="nationalNumber" StringId="DisplayName">
+            新しい電話番号</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+    </Localization>
+  </BuildingBlocks>
+</TrustFrameworkPolicy>
