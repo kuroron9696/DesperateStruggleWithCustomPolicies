@@ -792,9 +792,9 @@
           Remove any of these lines if you do not wish to display them.  -->
           <LocalizedString ElementType="UxElement" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_url">https://jwt.ms</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="disclaimer_link_2_url">{insert your terms and conditions URL}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="disclaimer_link_2_url">https://jwt.ms</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
       <LocalizedResources Id="phoneSignUp.en">
@@ -805,9 +805,9 @@
           Remove any of these lines if you do not wish to display them.  -->
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="disclaimer_link_1_url">https://jwt.ms</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="disclaimer_link_2_url">{insert your terms and conditions URL}</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="disclaimer_link_2_url">https://jwt.ms</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
       <LocalizedResources Id="phoneInput.en">
@@ -1677,7 +1677,6 @@
             <ClaimsExchange Id="SignUpWithPhone_CollectEmailAddress" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonPhoneNumber_CollectEmailAddress" />
           </ClaimsExchanges>
         </OrchestrationStep>
-
         <OrchestrationStep Order="4" Type="InvokeSubJourney">
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
