@@ -275,7 +275,7 @@
       -->
       <LocalizedResources Id="signuporsignin-phone.ja">
         <LocalizedStrings>
-          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">自分の既存のアカウントでサインイン</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">電話番号でサインイン</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="button_signin">サインイン</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
